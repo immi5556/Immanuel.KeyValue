@@ -57,6 +57,33 @@ namespace Immanuel.KeyValue.Controllers
         }
 
         [HttpPost]
+        public string ActOnValue(string appkey, string key, string value)
+        {
+            try
+            {
+                using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection("Server=198.38.83.33;Database=immanuel_kv;User Id=immanuel_sa;Password=12345;"))
+                {
+                    using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand())
+                    {
+                        cmd.CommandText = "[immanuel_sa].[sp_UpdateAction]";
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ip_ClientKey", appkey));
+                        cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ip_KeyName", key));
+                        cmd.Parameters.Add(new System.Data.SqlClient.SqlParameter("@ip_Action", value));
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch
+            {
+                return "Increment Failed, increment applied on string charecters";
+            }
+            return "Increment Successful";
+        }
+
+        [HttpPost]
         public bool UpdateValue(string appkey, string key, string value = null)
         {
             UpdateVal(appkey, key, value);

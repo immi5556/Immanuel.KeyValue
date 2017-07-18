@@ -96,3 +96,28 @@ BEGIN
 				[KeyName] = @ip_KeyName
 END
 go
+
+
+--[sp_UpdateAction] 'piiofpr9', 'VisitCnt', 'increment'
+
+DROP PROCEDURE [sp_UpdateAction]
+GO
+
+CREATE PROCEDURE [sp_UpdateAction]
+(
+	@ip_ClientKey varchar(8),
+	@ip_KeyName varchar(64),
+	@ip_Action varchar(50)
+)
+AS
+BEGIN
+	if (upper(@ip_Action) = 'INCREMENT')
+	begin
+		update [immanuel_sa].[KeyVal] 
+			set [KeyVal] = (ISNULL([KeyVal], 0) + 1)
+		where ISNUMERIC(ISNULL([KeyVal], 0)) = 1
+			and [ClientKey] = @ip_ClientKey 
+			and [KeyName] = @ip_KeyName
+	end
+END
+go

@@ -32,10 +32,10 @@
         ga('send', 'pageview');
 
     </script>
-    <div style="position:fixed;top:10px;left:15px;text-align: center;border: 2px green dashed;margin: 10px;padding: 10px;z-index:101;background-color:cadetblue;">
-        <span style="background-color:azure;">Key Pair</span><br />
-        <span class="fb"></span> <br />
-        <span style="background-color:azure;">Counts</span>
+    <div style="position:fixed;top:10px;left:15px;text-align: center;border: 2px green dashed;z-index:101;background-color:cadetblue;">
+        <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Key Pair</span><br />
+        <span style="color:white;font-size:large;" class="fb"></span> <br />
+        <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Counts</span>
     </div>
     <div style="position:fixed;top:10px;right:15px;z-index:102;">
         <!-- Load Facebook SDK for JavaScript -->
@@ -130,10 +130,23 @@
                     
                 });
             }
+            var actOnValue = function (appkey, itemkey, action) {
+                $.ajax({
+                    type: "POST",
+                    url: "http://keyvalue.immanuel.co/api/KeyVal/ActOnValue/" + appkey + "/" + itemkey + "/" + action,
+                    contentType: false,
+                    processData: false
+                   }).done(function (data) {
+
+                   }).fail(function(err){
+                    
+                });
+            }
         &lt;/script&gt;
         Usage: 
             - getValue('appKey', 'ItekKey') //Get already stored value, else null
             - updateValue('appKey', 'ItekKey', 'ItemValue') //Update stored key & value
+            - actOnValue('appKey', 'ItekKey', 'Increment') //action 'Increment', will +1
         </pre>  <br />
     </div>
     <script>

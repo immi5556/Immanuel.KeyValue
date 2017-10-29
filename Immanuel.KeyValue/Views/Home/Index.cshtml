@@ -38,12 +38,12 @@
         ga('send', 'pageview');
 
     </script>
-    <div style="position:fixed;top:10px;left:15px;text-align: center;border: 2px green dashed;z-index:101;background-color:cadetblue;">
+    @*<div style="position:fixed;top:10px;left:15px;text-align: center;border: 2px green dashed;z-index:101;background-color:cadetblue;">
         <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Key Pair</span><br />
         <span style="color:white;font-size:large;" class="fb"></span> <br />
         <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Counts</span>
-    </div>
-    <div style="position:fixed;top:10px;right:15px;z-index:102;">
+    </div>*@
+    <div style="position:fixed;top:10px;left:15px;z-index:102;">
         <!-- Load Facebook SDK for JavaScript -->
         <div id="fb-root"></div>
         <script>
@@ -165,11 +165,11 @@
                     processData: false
                 }).done(function (data) {
                     //$('.fb').text(data);
-                    $('.fb').animationCounter({
+                    /*$('.fb').animationCounter({
                         start: data,
                         step: 1,
                         delay: 8000
-                    });
+                    });*/
                 });
 
 
@@ -229,6 +229,60 @@
 
                 $("#btnGetVal").on("click", function () { getVal(); });
             });
+    </script>
+    <script>
+            'use strict';
+            (function (win) {
+                var appkey = "35hryfv1";
+                var viskey = "KeyvalUsgCnt"
+                var loadHttp = function (act, url, callback) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            console.log(this.responseText);
+                            if (callback) {
+                                callback(this.responseText);
+                            }
+                        }
+                    };
+                    xhttp.open(act, url, true);
+                    xhttp.send();
+                };
+
+                var getVal = function () {
+                    loadHttp("GET", "http://keyvalue.immanuel.co/api/KeyVal/GetValue/" + appkey + "/" + viskey, function (data) {
+                        document.getElementById("vis-gcnt").textContent = data;
+                    });
+                }
+
+                var incrementVisit = function () {
+                    loadHttp("POST", "http://keyvalue.immanuel.co/api/KeyVal/ActOnValue/" + appkey + "/" + viskey + "/increment", function (data) {
+                        //document.getElementById("vis-gcnt").textContent = data;
+                    });
+                }
+                incrementVisit();
+                var elm = document.createElement('div');
+                elm.style.position = "fixed";
+                elm.style.top = "10px";
+                elm.style.right = "15px";
+                elm.style.textAlign = "center";
+                elm.style.border = "2px green dashed";
+                elm.style.textAlign = "center";
+                elm.style.zIndex = "101";
+                elm.style.backgroundColor = "cadetblue";
+                var cnrl = '<span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Key Pair</span><br /> \
+                            <span style="color:white;font-size:large;" id="vis-gcnt"></span> <br /> \
+                            <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Counts</span>';
+                elm.innerHTML = cnrl;
+                if (document.body == null) {
+                    document.appendChild("body"); //Not tested
+                }
+                document.body.appendChild(elm);
+                getVal();
+                win.a7 = {
+
+                };
+            })(window)
     </script>
 </body>
 </html>

@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="App settings (Key value) store">
     <meta name="keywords" content="key value pair, app settings, online store, online key value pair, free online, REST, API">
-    <meta property="og:url" content="http://keyvalue.immanuel.co/" />
+    <meta property="og:url" content="https://keyvalue.immanuel.co/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Full Free - Online - Key Value Store" />
     <meta property="og:description" content="Key value pair store, online, completely free. stores and maintains key value pair" />
-    <meta property="og:image" content="http://www.immanuel.co/" />
+    <meta property="og:image" content="https://www.immanuel.co/" />
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/animationCounter.js"></script>
     <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
@@ -21,7 +21,7 @@
     <meta name="robots" content="index, follow">
     <meta name="distribution" content="Global" />
     <meta name="rating" content="General" />
-    <meta name="identifier-url" content="http://www.immanuel.co">
+    <meta name="identifier-url" content="https://www.immanuel.co">
     <meta name="Language" content="en, en-us, en-gb, en-bz, en-za">
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0">
 </head>
@@ -56,7 +56,7 @@
             }(document, 'script', 'facebook-jssdk'));</script>
 
         <!-- Your like button code -->
-        <div class="fb-like" data-href="http://keyvalue.immanuel.co/" data-layout="box_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+        <div class="fb-like" data-href="https://keyvalue.immanuel.co/" data-layout="box_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
     </div>
 
     <div style="width:100%;height:100%;overflow:hidden;text-align:center;">
@@ -73,13 +73,13 @@
                 <div style="margin-left:10px;">
                     <br />
                     Step 1: Get your app-key  <br />
-                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> curl http://keyvalue.immanuel.co/api/KeyVal/GetAppKey 
+                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> curl https://keyvalue.immanuel.co/api/KeyVal/GetAppKey 
     (above will return app key 8 digit alphanumeric - '3cg7aby9') </pre> <br /><br />
                     Step 2: Update your Key. value using App-key <br />
-                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> curl -X POST http://keyvalue.immanuel.co/api/KeyVal/UpdateValue/3cg7aby9/yourkey/yourvalue 
+                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> curl -X POST https://keyvalue.immanuel.co/api/KeyVal/UpdateValue/3cg7aby9/yourkey/yourvalue 
     (yourkey - maxlength = 64, yourvalue = maxlength = 1024) </pre> <br /><br />
                     Step 3: Retrieve ypur value using app-key and key <br />
-                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> curl http://keyvalue.immanuel.co/api/KeyVal/GetValue/3cg7aby9/yourkey 
+                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> curl https://keyvalue.immanuel.co/api/KeyVal/GetValue/3cg7aby9/yourkey 
     (above will return your key value) </pre> <br /><br />
                 </div>
             </div>
@@ -92,13 +92,13 @@
                 <div style="margin-left:10px;">
                     <br />
                     Step 1: Get your app-key  <br />
-                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> http://keyvalue.immanuel.co/api/KeyVal/GetAppKey  </pre>  <br />
+                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> https://keyvalue.immanuel.co/api/KeyVal/GetAppKey  </pre>  <br />
                     <button id="btnkey" style="margin-left:20px;height:25px;">Get App Key</button> <input id="appkey" type="text" style="height:22px;" placeholder="App Key" /> <br /><br />
                     Step 2: Update your Key. value using App-key <br />
-                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> http://keyvalue.immanuel.co/api/KeyVal/UpdateValue/3cg7aby9/yourkey/yourvalue  </pre> <br />
+                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> https://keyvalue.immanuel.co/api/KeyVal/UpdateValue/3cg7aby9/yourkey/yourvalue  </pre> <br />
                     <input id="yrAppKey" type="text" style="height:25px;margin-left:20px;width:75px;" placeholder="App Key" /> <input id="yrKey" type="text" style="height:25px;margin-left:20px;width:75px;" placeholder="Your Key" /> <input id="yrVal" type="text" style="margin-left:15px;height:22px;width:100px;" placeholder="Your Value" /> <button id="btnUpdate" style="margin-left:20px;height:25px;">Update</button> <br /><br />
                     Step 3: Retrieve ypur value using app-key and key <br />
-                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> http://keyvalue.immanuel.co/api/KeyVal/GetValue/3cg7aby9/yourkey  </pre> <br />
+                    <pre style="background-color:#dad1d1;line-height:30px;display: inline-block;margin-left:20px;"> -> https://keyvalue.immanuel.co/api/KeyVal/GetValue/3cg7aby9/yourkey  </pre> <br />
                     <input id="tpAppKey" type="text" style="height:25px;margin-left:20px;width:75px;" placeholder="App Key" /> <input id="toKey" type="text" style="height:25px;margin-left:20px;width:75px;" placeholder="Your Key" /> <button id="btnGetVal" style="margin-left:20px;height:25px;">Get Val</button> <input id="toVal" type="text" style="margin-left:15px;height:22px;width:100px;" placeholder="Your Value" /><br /><br />
                 </div>
             </div>
@@ -116,7 +116,7 @@
             var getValue = function (appkey, itemkey) {
                 $.ajax({
                     type: "GET",
-                    url: "http://keyvalue.immanuel.co/api/KeyVal/GetValue/" + appkey + "/" + itemkey,
+                    url: "https://keyvalue.immanuel.co/api/KeyVal/GetValue/" + appkey + "/" + itemkey,
                     contentType: false,
                     processData: false
                   }).done(function (data) {
@@ -128,7 +128,7 @@
             var updateValue = function (appkey, itemkey, itemval) {
                 $.ajax({
                     type: "POST",
-                    url: "http://keyvalue.immanuel.co/api/KeyVal/UpdateValue/" + appkey + "/" + itemkey + "/" + itemval,
+                    url: "https://keyvalue.immanuel.co/api/KeyVal/UpdateValue/" + appkey + "/" + itemkey + "/" + itemval,
                     contentType: false,
                     processData: false
                    }).done(function (data) {
@@ -140,7 +140,7 @@
             var actOnValue = function (appkey, itemkey, action) {
                 $.ajax({
                     type: "POST",
-                    url: "http://keyvalue.immanuel.co/api/KeyVal/ActOnValue/" + appkey + "/" + itemkey + "/" + action,
+                    url: "https://keyvalue.immanuel.co/api/KeyVal/ActOnValue/" + appkey + "/" + itemkey + "/" + action,
                     contentType: false,
                     processData: false
                    }).done(function (data) {
@@ -160,7 +160,7 @@
             $(function () {
                 $.ajax({
                     type: "GET",
-                    url: "http://keyvalue.immanuel.co/api/KeyVal/GetCount",
+                    url: "https://keyvalue.immanuel.co/api/KeyVal/GetCount",
                     contentType: false,
                     processData: false
                 }).done(function (data) {
@@ -176,7 +176,7 @@
                 var getAppKey = function () {
                     $.ajax({
                         type: "GET",
-                        url: "http://keyvalue.immanuel.co/api/KeyVal/GetAppKey",
+                        url: "https://keyvalue.immanuel.co/api/KeyVal/GetAppKey",
                         contentType: false,
                         processData: false
                     }).done(function (data) {
@@ -197,7 +197,7 @@
                     var yrVal = $("#yrVal").val();
                     $.ajax({
                         type: "POST",
-                        url: "http://keyvalue.immanuel.co/api/KeyVal/UpdateValue/" + apk + "/" + yrKey + "/" + yrVal,
+                        url: "https://keyvalue.immanuel.co/api/KeyVal/UpdateValue/" + apk + "/" + yrKey + "/" + yrVal,
                         contentType: false,
                         processData: false
                     }).done(function (data) {
@@ -219,7 +219,7 @@
                     }
                     $.ajax({
                         type: "GET",
-                        url: "http://keyvalue.immanuel.co/api/KeyVal/GetValue/" + apk + "/" + toKey,
+                        url: "https://keyvalue.immanuel.co/api/KeyVal/GetValue/" + apk + "/" + toKey,
                         contentType: false,
                         processData: false
                     }).done(function (data) {
@@ -250,13 +250,13 @@
                 };
 
                 var getVal = function () {
-                    loadHttp("GET", "http://keyvalue.immanuel.co/api/KeyVal/GetValue/" + appkey + "/" + viskey, function (data) {
+                    loadHttp("GET", "https://keyvalue.immanuel.co/api/KeyVal/GetValue/" + appkey + "/" + viskey, function (data) {
                         document.getElementById("vis-gcnt").textContent = data;
                     });
                 }
 
                 var incrementVisit = function () {
-                    loadHttp("POST", "http://keyvalue.immanuel.co/api/KeyVal/ActOnValue/" + appkey + "/" + viskey + "/increment", function (data) {
+                    loadHttp("POST", "https://keyvalue.immanuel.co/api/KeyVal/ActOnValue/" + appkey + "/" + viskey + "/increment", function (data) {
                         //document.getElementById("vis-gcnt").textContent = data;
                     });
                 }

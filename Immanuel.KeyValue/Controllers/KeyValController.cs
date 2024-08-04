@@ -11,6 +11,7 @@ namespace Immanuel.KeyValue.Controllers
 {
     public class KeyValController : ApiController
     {
+        static string connection_string = @"";
         static int cnt = 0;
         // GET api/<controller>
         public string GetAppKey()
@@ -21,7 +22,7 @@ namespace Immanuel.KeyValue.Controllers
         public int GetCount()
         {
             int str = 0;
-            using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection("Server=198.38.83.33;Database=immanuel_kv;User Id=immanuel_sa;Password=12345;"))
+            using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(connection_string))
             {
                 using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand())
                 {
@@ -39,7 +40,7 @@ namespace Immanuel.KeyValue.Controllers
         public string GetValue(string appkey, string key)
         {
             string str = "";
-            using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection("Server=198.38.83.33;Database=immanuel_kv;User Id=immanuel_sa;Password=12345;"))
+            using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(connection_string))
             {
                 using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand())
                 {
@@ -61,7 +62,7 @@ namespace Immanuel.KeyValue.Controllers
         {
             try
             {
-                using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection("Server=198.38.83.33;Database=immanuel_kv;User Id=immanuel_sa;Password=12345;"))
+                using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(connection_string))
                 {
                     using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand())
                     {
@@ -92,7 +93,7 @@ namespace Immanuel.KeyValue.Controllers
 
         void UpdateVal(string appkey, string key, string value)
         {
-            using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection("Server=198.38.83.33;Database=immanuel_kv;User Id=immanuel_sa;Password=12345;"))
+            using (System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(connection_string))
             {
                 using (System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand())
                 {
